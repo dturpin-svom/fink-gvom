@@ -96,8 +96,7 @@ def plot_common_sky(pdf_cand_visibility:pd.DataFrame,
                     ['sky_frac_visibilities']*100))+ " \% of the "+\
                 obs_name_ref+" sky visible at "+obs_name_test)
                 
-    sdf_map = hp.read_map('/media/dt270490/Transcend/Workspace/GRB_data/'+\
-                          'GRBase/catalogs/dust/EBV_SFD98_1_512.fits')
+    sdf_map = hp.read_map('dust/EBV_SFD98_1_512.fits')
     if coord_syst =='gal':
         coord = 'G'
     elif coord_syst == 'equ':
@@ -555,8 +554,7 @@ def plot_cand_sky(cand_stat:pd.DataFrame,
                   "{:.2f}".format(n_alert/1e6)+' millions alerts related to '+\
                       "{:.2f}".format(n_object/1e6)+' millions objects')
                 
-    sdf_map = hp.read_map('/media/dt270490/Transcend/Workspace/GRB_data/'+\
-                          'GRBase/catalogs/dust/EBV_SFD98_1_512.fits')
+    sdf_map = hp.read_map('dust/EBV_SFD98_1_512.fits')
     if coord_syst =='gal':
         coord = 'G'
         x_axis_label = r"$l$ [deg]"
