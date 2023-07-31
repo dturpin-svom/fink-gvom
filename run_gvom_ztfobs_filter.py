@@ -38,9 +38,9 @@ def get_fink_alert():
 # Load a sample of Fink alert tests
 pdf_test = get_fink_alert()
 # Load the observatories info
-obs_filename = "gvom_network.csv"
+obs_filename = "gvom_core_network.csv"
 observatories = utils.load_observatories(obs_filename)
-# Define the observationnal constraints
+# Define the observational constraints
 constraints = [
     AltitudeConstraint(30 * u.deg, 90 * u.deg),
     AirmassConstraint(2),
@@ -62,15 +62,15 @@ pdf_cand_visibility = utils.obs_visibility(all_sky_coords['ra'],
 # =====================================================================
 # Apply the observational strategy
 # =====================================================================
-# Step 1 : Only keep the real sources (RB score > 0.9)
+# Step 1: Only keep the real sources (RB score > 0.9)
 mask_rb = gvom_filters.rb_mask(pdf_test,0.9)
-# Step 2 : Only keep the extragalactic sources
+# Step 2: Only keep the extragalactic sources
 
-# mask the source at low galactic latitutes
+# mask the source at low galactic latitudes
 mask_extragal = gvom_filters.extragal_mask(pdf_cand_visibility,
                                            15)
 
-# Step 3 : Only keep the sources both visible more than 2 hours at SPM,
+# Step 3: Only keep the sources both visible for more than 2 hours at SPM,
 # Xinglong and Canaria Island
 mask_visibility = gvom_filters.net_visibity_mask(pdf_cand_visibility,
                                                  2/24)
