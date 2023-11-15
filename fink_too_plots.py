@@ -605,13 +605,13 @@ def plot_cand_sky(cand_stat:pd.DataFrame,
         decs = list_coords[1]
     # Plot the Northern sky only
     mask = np.array(ras) >180
-    theta, phi = equtorad_coord(ras[mask],decs[mask])
+    theta, phi = utils.equtorad_coord(ras[mask],decs[mask])
     if len(theta)>0:
         newprojplot(theta=theta, phi=phi,color=c_common_sky,
                     fmt='o',alpha = 1.0);
     # Plot the Southern sky only
     mask = np.array(ras) <=180
-    theta, phi = equtorad_coord(ras[mask],decs[mask])
+    theta, phi = utils.equtorad_coord(ras[mask],decs[mask])
     if len(theta)>0:
         newprojplot(theta=theta, phi=phi,color=c_common_sky,
                     fmt='o',alpha = 1.0);
